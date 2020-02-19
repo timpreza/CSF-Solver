@@ -1,0 +1,141 @@
+/* (c)2020 Timothy Rivera | ENG222-02 | Computer Assignment #1
+   Program Name: NULL
+   Objective: Determine resultant, magnitude, and orientation (counterclockwise from positive x-axis) of concurrent system of forces. 
+   Limitations: Program can only calculate up to 4 forces at a time
+*/
+
+#include <iostream>
+#include <string>
+#include <cmath>
+using namespace std;
+
+int main() {
+	// Declare all; initialize one
+	int caseNum, forceNum;
+	int caseCheck = 1;
+	double angle1, angle2, angle3, angle4;
+	double force1, force2, force3, force4;
+	double f1x, f2x, f3x, f4x, f1y, f2y, f3y, f4y;
+	double sumFx, sumFy;
+	double resultant;
+	string unitType;
+	char axisAngle1, axisAngle2, axisAngle3, axisAngle4;
+	double debug; // DELETE
+	
+	// Introduction
+	cout << "This program will determine the resultant of concurrent system of forces\n" << endl;
+	
+	// Get number of cases
+	cout << "How many cases/problems?: ";
+	cin >> caseNum;
+	
+	// Loop set of times for caseNum
+	while (caseCheck <= caseNum) {
+		
+		// Get unit type
+		cout << "What is the unit type for case " << caseCheck << "?: ";
+		cin >> unitType;
+		
+		// Get number of forces
+		cout << "How many forces are there for case " << caseCheck << "? (Max 4): ";
+		cin >> forceNum;
+		
+		// If one total force
+		if (forceNum == 1) {
+			cout << "DEBUG";
+		}
+		
+		// If two total forces
+		else if (forceNum == 2) {
+			cout << "DEBUG";
+		}
+		
+		// If three total forces
+		else if (forceNum == 3) {
+			
+			// Get forces
+			cout << "What is F1?: ";
+			cin >> force1;
+			cout << "What is F2?: ";
+			cin >> force2;
+			cout << "What is F3?: ";
+			cin >> force3;
+			
+			// Get angles
+			cout << "What angle is F1?: ";
+			cin >> angle1;
+			cout << "Where is angle respect to?: ";
+			cin >> axisAngle1;
+			
+			cout << "What angle is F2?: ";
+			cin >> angle2;
+			cout << "Where is angle respect to?: ";
+			cin >> axisAngle2;
+			
+			cout << "What angle is F3?: ";
+			cin >> angle3;
+			cout << "Where is angle respect to?: ";
+			cin >> axisAngle3;
+			/*
+			// Calculate
+			if (axisAngle1 == 'x') {
+				f1x = force1 * cos(axisAngle1);
+				f1y = force1 * sin(axisAngle1);
+			}
+			else {
+				f1x = force1 * sin(axisAngle1);
+				f1y = force1 * cos(axisAngle1);
+			}
+			if (axisAngle2 == 'x') {
+				f2x = force2 * cos(axisAngle2);
+				f2y = force2 * sin(axisAngle2);
+			}
+			else {
+				f2x = force2 * sin(axisAngle2);
+				f2x = force2 * cos(axisAngle2);
+			}
+			if (axisAngle3 == 'x') {
+				f3x = force3 * cos(axisAngle3);
+				f3y = force3 * sin(axisAngle3);
+			}
+			else {
+				f3x = force3 * sin(axisAngle3);
+				f3y = force3 * cos(axisAngle3);
+			}
+			*/
+			
+			
+			f1x = force1 * (sin(axisAngle1)) * (180 / M_PI);
+			f2x = force2 * (cos(axisAngle2)) * (180 / M_PI);
+			f3x = -480;
+			
+			f1y = force1 * (cos(axisAngle1)) * (180 / M_PI);
+			f2y = force2 * (sin(axisAngle2)) * (180 / M_PI);
+			f3y = 360;
+			
+			sumFx = f1x + f2x + f3x;
+			sumFy = f1y + f2y + f3y;
+			
+			resultant = sqrt(pow(sumFx,2) + pow(sumFy,2));
+			
+			cout << resultant << endl;
+			
+			debug = sin(30);
+			debug = debug * 180.0 / M_PI;
+			cout << debug;
+			
+		}
+		
+		// If four total forces
+		else if (forceNum == 4) {
+			cout << "DEBUG";
+		}
+		
+		
+		// Increment caseCheck
+		caseCheck++;
+    }		
+	
+	
+	return 0;
+}
