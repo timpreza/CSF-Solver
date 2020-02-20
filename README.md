@@ -1,5 +1,5 @@
 # CSF-Solver
-### NOTICE: Major bug has been discovered; program does not output correct results. Refer to Alpha version for a stable version
+### NOTICE: Major bug has been discovered; program does not output correct results. Refer to Alpha version for a stable version (version does not loop)
 
 Coded in C++, this program will find the following for concurrent system of forces:
   - Resultant and magnitude
