@@ -1,7 +1,7 @@
 # ENG222-Project-1
 Coded in C++, this program will find the following for concurrent system of forces:
   - Resultant and magnitude
-  - Orientation of angle with respect to x-axis
+  - Orientation of angle with respect to positive x-axis
   - Quadrant location
   
 The following information is needed for the program:
