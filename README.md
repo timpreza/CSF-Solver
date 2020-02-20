@@ -5,7 +5,7 @@ Coded in C++, this program will find the following for concurrent system of forc
   - Quadrant location
   
 The following information is needed for the program:
-  - Unit type
+  - SI Unit types
   - All force values
   - All angle values
 
