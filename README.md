@@ -9,5 +9,5 @@ The following information is needed for the program:
   - All force values
   - All angle values
 
-Limitations
+Limitations:
 This program can only solve problems that have a total of 5 or less concurrent forces.
