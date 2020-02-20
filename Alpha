@@ -1,4 +1,4 @@
-/* Reference for TCNJ Students */
+// Reference for TCNJ Students
 #include <iostream>
 #include <string>
 #include <cmath>
@@ -6,17 +6,15 @@
 using namespace std;
 
 int main() {
-	// Declare all; initialize one
-	int caseNum, forceNum;
-	int caseCheck = 1;
-	double angle1, angle2, angle3, angle4;
-	double force1, force2, force3, force4;
-	double f1x, f2x, f3x, f4x, f1y, f2y, f3y, f4y;
-	double sumFx, sumFy;
-	double resultant, degrees;
+	// Declare all and set double variables to null state
 	string unitType;
-	char axisAngle1, axisAngle2, axisAngle3, axisAngle4;
-	char xPositiveF1, xPositiveF2, xPositiveF3, xPositiveF4, yPositiveF1, yPositiveF2, yPositiveF3, yPositiveF4;
+	int caseCheck, caseNum, forceNum;
+	double angle1 = 0.0, angle2 = 0.0, angle3 = 0.0, angle4 = 0.0, angle5 = 0.0;
+	double force1 = 0.0, force2 = 0.0, force3 = 0.0, force4 = 0.0, force5 = 0.0;
+	double f1x = 0.0, f2x = 0.0, f3x = 0.0, f4x = 0.0, f5x = 0.0, f1y = 0.0, f2y = 0.0, f3y = 0.0, f4y = 0.0, f5y = 0.0;
+	double sumFx = 0.0, sumFy = 0.0, resultant = 0.0, degrees = 0.0;
+	char axisAngle1, axisAngle2, axisAngle3, axisAngle4, axisAngle5;
+	char xPositiveF1, xPositiveF2, xPositiveF3, xPositiveF4, xPositiveF5, yPositiveF1, yPositiveF2, yPositiveF3, yPositiveF4, yPositiveF5;
 	
 	// Introduction
 	cout << "This program will determine the resultant of concurrent system of forces\n" << endl;
@@ -26,92 +24,151 @@ int main() {
 	cin >> caseNum;
 	
 	// Loop set of times for caseNum
-	while (caseCheck <= caseNum) {
+	for (caseCheck = 1 ; caseCheck <= caseNum ; caseCheck++) {
 		
 		// Get unit type
 		cout << "What is the unit type for case " << caseCheck << "?: ";
 		cin >> unitType;
 		
 		// Get number of forces
-		cout << "How many forces are there for case " << caseCheck << "? (Max 4): ";
+		cout << "How many forces are there for case " << caseCheck << "? (Max 5): ";
 		cin >> forceNum;
-		
-		// If one total force
-		if (forceNum == 1) {
-			cout << "DEBUG";
-		}
-		
-		// If two total forces
-		else if (forceNum == 2) {
-			cout << "DEBUG";
-		}
-		
-		// If three total forces
-		else if (forceNum == 3) {
 			
-			// Get forces
-			cout << "What is F1?: ";
-			cin >> force1;
-			cout << "What is F2?: ";
-			cin >> force2;
+		// Get forces
+		switch(forceNum){
+			case(5):
+			cout << "What is F5?: ";
+			cin >> force5;
+				
+			case(4):
+			cout << "What is F4?: ";
+			cin >> force4;
+				
+			case(3):
 			cout << "What is F3?: ";
 			cin >> force3;
+				
+			case(2):
+			cout << "What is F2?: ";
+			cin >> force2;
+				
+			case(1):
+			cout << "What is F1?: ";
+			cin >> force1;
+			break;
+		}
 			
-			// Get angles
-			cout << "What angle is F1?: ";
-			cin >> angle1;
+		// Get angles
+		switch(forceNum) {
+			case(5):
+			cout << "What angle is F5?: ";
+			cin >> angle5;
 			cout << "Where is angle respect to?: ";
-			cin >> axisAngle1;
+			cin >> axisAngle5;
 			
-			cout << "What angle is F2?: ";
-			cin >> angle2;
+			case(4):
+			cout << "What angle is F4?: ";
+			cin >> angle4;
 			cout << "Where is angle respect to?: ";
-			cin >> axisAngle2;
+			cin >> axisAngle4;
 			
+			case(3):
 			cout << "What angle is F3?: ";
 			cin >> angle3;
 			cout << "Where is angle respect to?: ";
 			cin >> axisAngle3;
 			
-			// Ask if forces is positive/negative respect to x/y axis
-			cout << "Is F1 positive to x-axis? (Y/N): ";
-			cin >> xPositiveF1;
-			cout << "Is F1 positive to y-axis? (Y/N): ";
-			cin >> yPositiveF1;
+			case(2):
+			cout << "What angle is F2?: ";
+			cin >> angle2;
+			cout << "Where is angle respect to?: ";
+			cin >> axisAngle2;
 			
-			cout << "Is F2 positive to x-axis? (Y/N): ";
-			cin >> xPositiveF2;
-			cout << "Is F2 positive to y-axis? (Y/N): ";
-			cin >> yPositiveF2;
+			case(1):
+			cout << "What angle is F1?: ";
+			cin >> angle1;
+			cout << "Where is angle respect to?: ";
+			cin >> axisAngle1;
+			break;
+		}
+		
+		// Ask if forces is positive/negative respect to x/y axis
+		switch(forceNum){
+			case(5):
+			cout << "Is F5 positive to the x-axis? (Y/N): ";
+			cin >> xPositiveF5;
+			cout << "Is F5 positive to the y-axis? (Y/N): ";
+			cin >> yPositiveF5;
 			
-			cout << "Is F3 positive to x-axis? (Y/N): ";
+			case(4):
+			cout << "Is F4 positive to the x-axis? (Y/N): ";
+			cin >> xPositiveF4;
+			cout << "Is F4 positive to the y-axis? (Y/N): ";
+			cin >> xPositiveF4;
+			
+			case(3):
+			cout << "Is F3 positive to the x-axis? (Y/N): ";
 			cin >> xPositiveF3;
-			cout << "Is F3 positive to y-axis? (Y/N): ";
+			cout << "Is F3 positive to the y-axis? (Y/N): ";
 			cin >> yPositiveF3;
 			
-			// Convert degrees to radians (C++ interprets inputs as degrees)
-			angle1 = angle1 * M_PI / 180;
-			angle2 = angle2 * M_PI / 180;
+			case(2):
+			cout << "Is F2 positive to the x-axis? (Y/N): ";
+			cin >> xPositiveF2;
+			cout << "Is F2 positive to the y-axis? (Y/N): ";
+			cin >> yPositiveF2;
+			
+			case(1):
+			cout << "Is F1 positive to the x-axis? (Y/N): ";
+			cin >> xPositiveF1;
+			cout << "Is F1 positive to the y-axis? (Y/N): ";
+			cin >> yPositiveF1;
+			break;
+		}
+		
+		// Convert degrees to radians (C++ interprets inputs as degrees)
+		switch(forceNum) {
+			case(5):
+			angle5 = angle5 * M_PI / 180;
+			
+			case(4):
+			angle4 = angle4 * M_PI / 180;
+			
+			case(3):
 			angle3 = angle3 * M_PI / 180;
 			
-			// Calculate
-			if (axisAngle1 == 'x') {
-				f1x = force1 * cos(angle1);
-				f1y = force1 * sin(angle1);
+			case(2):
+			angle2 = angle2 * M_PI / 180;
+			
+			case(1):
+			angle1 = angle1 * M_PI / 180;
+			break;
+		}
+		
+		// Calculate
+		switch(forceNum) {
+			case(5):
+			if (axisAngle5 == 'x' || axisAngle5 == 'X') {
+				f5x = force5 * cos(angle5);
+				f5y = force5 * sin(angle5);
 			}
 			else {
-				f1x = force1 * sin(angle1);
-				f1y = force1 * cos(angle1);
+				f5x = force5 * sin(angle5);
+				f5y = force5 * cos(angle5);
 			}
-			if (axisAngle2 == 'x') {
-				f2x = force2 * cos(angle2);
-				f2y = force2 * sin(angle2);
+			
+			case(4):
+			if (axisAngle4 == 'x' || axisAngle4 == 'X') {
+				f4x = force4 * cos(angle4);
+				f4y = force4 * sin(angle4);
 			}
 			else {
-				f2x = force2 * sin(angle2);
-				f2x = force2 * cos(angle2);
+				f4x = force4 * sin(angle4);
+				f4y = force4 * cos(angle4);
 			}
-			if (axisAngle3 == 'x') {
+			
+			case(3):
+			if (axisAngle3 == 'x' || axisAngle3 == 'X') {
 				f3x = force3 * cos(angle3);
 				f3y = force3 * sin(angle3);
 			}
@@ -120,58 +177,108 @@ int main() {
 				f3y = force3 * cos(angle3);
 			}
 			
-			// Convert to negative if applicable
-			if (xPositiveF1 == 'n') {
-				f1x = f1x * -1;
+			case(2):
+			if (axisAngle2 == 'x' || axisAngle2 == 'X') {
+				f2x = force2 * cos(angle2);
+				f2y = force2 * sin(angle2);
 			}
-			if (xPositiveF2 == 'n') {
-				f2x = f2x * -1;
-			}
-			if (xPositiveF3 == 'n') {
-				f3x = f3x * -1;
-			}
-			if (yPositiveF1 == 'n') {
-				f1y = f1y * -1;
-			}
-			if (yPositiveF2 == 'n') {
-				f2y = f2y * -1;
-			}
-			if (yPositiveF3 == 'n') {
-				f3y = f3y * -1;
+			else {
+				f2x = force2 * sin(angle2);
+				f2x = force2 * cos(angle2);
 			}
 			
-			// Calculate sum of Fx and Fy
-			sumFx = f1x + f2x + f3x;
-			sumFy = f1y + f2y + f3y;
-			
-			// Calculate resultant
-			resultant = sqrt(pow(sumFx,2) + pow(sumFy,2));
-			
-			// Calculate degrees
-			degrees = atan2(sumFy, sumFx);
-			degrees = degrees * 180 / M_PI;
-			
-			// Output results
-			cout << "The resultant force is " << resultant << "." << endl;
-			cout << "The angle is " << degrees << "degrees." << endl;
+			case(1):
+			if (axisAngle1 == 'x' || axisAngle1 == 'X') {
+				f1x = force1 * cos(angle1);
+				f1y = force1 * sin(angle1);
+			}
+			else {
+				f1x = force1 * sin(angle1);
+				f1y = force1 * cos(angle1);
+			}
+			break;
 			
 		}
 		
-		// If four total forces
-		else if (forceNum == 4) {
-			cout << "DEBUG";
+		// Convert to negative if applicable
+		if (xPositiveF5 == 'n' || xPositiveF5 == 'N') {
+			f5x = f5x * -1;
+		}
+		if (xPositiveF4 == 'n' || xPositiveF4 == 'N') {
+			f4x = f4x * -1;
+		}
+		if (xPositiveF3 == 'n' || xPositiveF3 == 'N') {
+			f3x = f3x * -1;
+		}
+		if (xPositiveF2 == 'n' || xPositiveF2 == 'N') {
+			f2x = f2x * -1;
+		}
+		if (xPositiveF1 == 'n' || xPositiveF1 == 'N') {
+			f1x = f1x * -1;
+		}
+		if (yPositiveF5 == 'n' || yPositiveF5 == 'N') {
+			f5y = f5y * -1;
+		}
+		if (yPositiveF4 == 'n' || yPositiveF4 == 'N') {
+			f4y = f4y * -1;
+		}
+		if (yPositiveF3 == 'n' || yPositiveF3 == 'N') {
+			f3y = f3y * -1;
+		}
+		if (yPositiveF2 == 'n' || yPositiveF2 == 'N') {
+			f2y = f2y * -1;
+		}
+		if (yPositiveF1 == 'n' || yPositiveF1 == 'N') {
+			f1y = f1y * -1;
 		}
 		
-		// If five total forces
-		else if (forceNum == 5) {
-			cout << "DEBUG";
+		// Calculate sum of Fx and Fy
+		sumFx = f1x + f2x + f3x + f4x + f5x;
+		sumFy = f1y + f2y + f3y + f4y + f5y;
+		
+		// Calculate resultant
+		resultant = sqrt(pow(sumFx,2) + pow(sumFy,2));
+		
+		// Calculate degrees
+		degrees = atan2(sumFy, sumFx);
+		degrees = degrees * 180 / M_PI;
+		
+		// Output results
+		cout << "\nThe resultant force is " << resultant << "." << endl;
+		cout << "The angle is " << degrees << " degrees." << endl;
+		
+		// Calculate and output quadrant location
+		if (degrees > 0 && degrees < 90) {
+			cout << "It resides in the first quadrant." << endl;
+		}
+		else if (degrees > 90.0 && degrees < 180.0) {
+			cout << "It resides in the second quadrant." << endl;
+		}
+		else if (degrees > 180.0 && degrees < 270.0) {
+			cout << "It resides in the third quadrant." << endl;
+		}
+		else if (degrees > 270.0 && degrees < 360.0) {
+			cout << "It resides in the fourth quadrant." << endl;
+		}
+		else if (degrees == 90.0) {
+			cout << "It resides between the first and second quadrant." << endl;
+		}
+		else if (degrees == 180.0) {
+			cout << "It resides between the second and third quadrant." << endl;
+		}
+		else if (degrees == 270.0) {
+			cout << "It resides between the third and fourth quadrant." << endl;
+		}
+		else if (degrees == 360.0) {
+			cout << "It resides between the fourth and first quadrant." << endl;
 		}
 		
-		
-		// Increment caseCheck
-		caseCheck++;
+		// Reset double values to null state
+		angle1 = 0.0, angle2 = 0.0, angle3 = 0.0, angle4 = 0.0, angle5 = 0.0;
+	    	force1 = 0.0, force2 = 0.0, force3 = 0.0, force4 = 0.0, force5 = 0.0;
+		f1x = 0.0, f2x = 0.0, f3x = 0.0, f4x = 0.0, f5x = 0.0, f1y = 0.0, f2y = 0.0, f3y = 0.0, f4y = 0.0, f5y = 0.0;
+		sumFx = 0.0, sumFy = 0.0, resultant = 0.0, degrees = 0.0;
     }		
-	
 	
 	return 0;
 }
