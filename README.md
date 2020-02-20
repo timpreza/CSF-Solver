@@ -1,4 +1,4 @@
-# ENG222-Project-1
+# CSF-Solver
 Coded in C++, this program will find the following for concurrent system of forces:
   - Resultant and magnitude
   - Orientation of angle with respect to positive x-axis
