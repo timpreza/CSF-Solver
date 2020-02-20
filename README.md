@@ -18,4 +18,4 @@ Limitations: This program can only solve problems that have a total of 5 or less
 
 .ZIP VirusTotal: https://www.virustotal.com/gui/file/050d409c7f333b18f2df488716e17d842757b5c2aacb6afdaac2dbd18726beb4/detection
 
-.EXE SHA-256: e133479cc784c4e0b44203d2a47ac2d3731dce8ecca22b92d63c6bc8f977aec5
+.ZIP SHA-256: 050d409c7f333b18f2df488716e17d842757b5c2aacb6afdaac2dbd18726beb4
