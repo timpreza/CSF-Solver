@@ -11,6 +11,13 @@ The following information is needed for the program:
 
 Limitations: This program can only solve problems that have a total of 5 or less concurrent forces.
 
+# How To Run
+#### By compiling
+Compile code and execute code from CSF Solver
+
+#### By downloading
+Download and extract the .ZIP file and run program. Virus scans are provided below. You can also run it against your own antivirus as well.
+
 # Virus Scans
 https://www.virustotal.com/gui/file/e133479cc784c4e0b44203d2a47ac2d3731dce8ecca22b92d63c6bc8f977aec5/detection
 
