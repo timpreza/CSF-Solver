@@ -17,7 +17,7 @@ int main() {
 	char xPositiveF1, xPositiveF2, xPositiveF3, xPositiveF4, xPositiveF5, yPositiveF1, yPositiveF2, yPositiveF3, yPositiveF4, yPositiveF5;
 	
 	// Introduction
-	cout << "This program will determine the resultant of concurrent system of forces\n" << endl;
+	cout << "\n\nThis program will determine the resultant of concurrent system of forces\n" << endl;
 	
 	// Get number of cases
 	cout << "How many cases/problems?: ";
@@ -27,12 +27,13 @@ int main() {
 	for (caseCheck = 1 ; caseCheck <= caseNum ; caseCheck++) {
 		
 		// Get unit type
-		cout << "What is the unit type for case " << caseCheck << "?: ";
+		cout << "\nWhat is the unit type for case " << caseCheck << "?: ";
 		cin >> unitType;
 		
 		// Get number of forces
 		cout << "How many forces are there for case " << caseCheck << "? (Max 5): ";
 		cin >> forceNum;
+		cout << endl;
 			
 		// Get forces
 		switch(forceNum){
@@ -57,6 +58,7 @@ int main() {
 			cin >> force1;
 			break;
 		}
+		cout << endl;
 			
 		// Get angles
 		switch(forceNum) {
@@ -91,6 +93,7 @@ int main() {
 			cin >> axisAngle1;
 			break;
 		}
+		cout << endl;
 		
 		// Ask if forces is positive/negative respect to x/y axis
 		switch(forceNum){
@@ -125,6 +128,7 @@ int main() {
 			cin >> yPositiveF1;
 			break;
 		}
+		cout << endl;
 		
 		// Convert degrees to radians (C++ interprets inputs as degrees)
 		switch(forceNum) {
@@ -197,47 +201,52 @@ int main() {
 				f1y = force1 * cos(angle1);
 			}
 			break;
-			
 		}
 		
 		// Convert to negative if applicable
 		if (xPositiveF5 == 'n' || xPositiveF5 == 'N') {
-			f5x = f5x * -1;
+			f5x = f5x * -1.0;
 		}
 		if (xPositiveF4 == 'n' || xPositiveF4 == 'N') {
-			f4x = f4x * -1;
+			f4x = f4x * -1.0;
 		}
 		if (xPositiveF3 == 'n' || xPositiveF3 == 'N') {
-			f3x = f3x * -1;
+			f3x = f3x * -1.0;
 		}
 		if (xPositiveF2 == 'n' || xPositiveF2 == 'N') {
-			f2x = f2x * -1;
+			f2x = f2x * -1.0;
 		}
 		if (xPositiveF1 == 'n' || xPositiveF1 == 'N') {
-			f1x = f1x * -1;
+			f1x = f1x * -1.0;
 		}
 		if (yPositiveF5 == 'n' || yPositiveF5 == 'N') {
-			f5y = f5y * -1;
+			f5y = f5y * -1.0;
 		}
 		if (yPositiveF4 == 'n' || yPositiveF4 == 'N') {
-			f4y = f4y * -1;
+			f4y = f4y * -1.0;
 		}
 		if (yPositiveF3 == 'n' || yPositiveF3 == 'N') {
-			f3y = f3y * -1;
+			f3y = f3y * -1.0;
 		}
 		if (yPositiveF2 == 'n' || yPositiveF2 == 'N') {
-			f2y = f2y * -1;
+			f2y = f2y * -1.0;
 		}
 		if (yPositiveF1 == 'n' || yPositiveF1 == 'N') {
-			f1y = f1y * -1;
+			f1y = f1y * -1.0;
 		}
 		
 		// Calculate sum of Fx and Fy
-		sumFx = f1x + f2x + f3x + f4x + f5x;
-		sumFy = f1y + f2y + f3y + f4y + f5y;
+		sumFx = f5x + f4x + f3x + f2x + f1x;
+		sumFy = f5y + f4y + f3y + f2y + f1y;
 		
 		// Calculate resultant
 		resultant = sqrt(pow(sumFx,2) + pow(sumFy,2));
+		
+		// Convert sumFx and sumFy to positive if both are negative
+		if (sumFx < 0 && sumFy < 0) {
+			sumFx = sumFx * -1.0;
+			sumFy = sumFy * -1.0;
+		}
 		
 		// Calculate degrees
 		degrees = atan2(sumFy, sumFx);
@@ -272,12 +281,19 @@ int main() {
 		else if (degrees == 360.0) {
 			cout << "It resides between the fourth and first quadrant." << endl;
 		}
+		else {
+			cout << "The quadrant location can not be determined." << endl;
+		}
+		cout << endl << endl;
 		
 		// Reset double values to null state
 		angle1 = 0.0, angle2 = 0.0, angle3 = 0.0, angle4 = 0.0, angle5 = 0.0;
-	    	force1 = 0.0, force2 = 0.0, force3 = 0.0, force4 = 0.0, force5 = 0.0;
+	    force1 = 0.0, force2 = 0.0, force3 = 0.0, force4 = 0.0, force5 = 0.0;
 		f1x = 0.0, f2x = 0.0, f3x = 0.0, f4x = 0.0, f5x = 0.0, f1y = 0.0, f2y = 0.0, f3y = 0.0, f4y = 0.0, f5y = 0.0;
 		sumFx = 0.0, sumFy = 0.0, resultant = 0.0, degrees = 0.0;
+		axisAngle1 = '\0', axisAngle2 = '\0', axisAngle3 = '\0', axisAngle4 = '\0', axisAngle5 = '\0';
+		xPositiveF1 = '\0', xPositiveF2 = '\0', xPositiveF3 = '\0', xPositiveF4 = '\0', xPositiveF5 = '\0';
+		yPositiveF1 = '\0', yPositiveF2 = '\0', yPositiveF3 = '\0', yPositiveF4 = '\0', yPositiveF5 = '\0';
     }		
 	
 	return 0;
