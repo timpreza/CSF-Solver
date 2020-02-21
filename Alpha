@@ -104,7 +104,7 @@ int main() {
 			cout << "Is F4 positive to the x-axis? (Y/N): ";
 			cin >> xPositiveF4;
 			cout << "Is F4 positive to the y-axis? (Y/N): ";
-			cin >> xPositiveF4;
+			cin >> yPositiveF4;
 			
 			case(3):
 			cout << "Is F3 positive to the x-axis? (Y/N): ";
