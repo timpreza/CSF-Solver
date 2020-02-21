@@ -184,7 +184,7 @@ int main() {
 			}
 			else {
 				f2x = force2 * sin(angle2);
-				f2x = force2 * cos(angle2);
+				f2y = force2 * cos(angle2);
 			}
 			
 			case(1):
